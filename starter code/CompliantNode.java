@@ -1,26 +1,41 @@
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Set
 
-/* CompliantNode refers to a node that follows the rules (not malicious)*/
 public class CompliantNode implements Node {
+	
+	private int num_of_rounds;
+	private double graph;
+	private double txDistribution;
+	private double malicious_node;
+	
+	private boolean[] followees;
+	private boolean[] black_listed;
+	private Set<Transaction> pendingTransactions;
+	
+	public CompliantNode(int num_of_rounds, double graph, double txDistribution, double malicious_node){
+		this.num_of_rounds = num_of_rounds;
+		this.graph = graph;
+		this.txDistribution = txDistribution;
+		this.malicious_node = malicious_node;
 
-    public CompliantNode(double p_graph, double p_malicious, double p_txDistribution, int numRounds) {
-        // IMPLEMENT THIS
-    }
+	}
 
-    public void setFollowees(boolean[] followees) {
-        // IMPLEMENT THIS
-    }
+	public void setFollowees(boolean[] followees){
+		this.followees = followees;	
+		this.black_listed = new boolean[followees.length];
+	}
 
-    public void setPendingTransaction(Set<Transaction> pendingTransactions) {
-        // IMPLEMENT THIS
-    }
+	public void setPendingTransaction(Set<Transaction> pendingTransactions){
+		this.pendingTransactions = pendingTransactions;
 
-    public Set<Transaction> sendToFollowers() {
-        // IMPLEMENT THIS
-    }
+	}
 
-    public void receiveCandidates(ArrayList<Integer[]> candidates) {
-        // IMPLEMENT THIS
-    }
+	public Set<Transaction> sendToFollowers(){
+		// IMPLEMENT THIS
+
+	}
+
+	public void receiveFromFollowees(ArrayList<Integer[]> candidates){
+		//IMPLEMENT THIS
+	}
 }
